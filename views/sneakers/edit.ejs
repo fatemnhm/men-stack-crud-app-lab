@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit <%= sneaker.name %></title>
+  <!-- <link rel="stylesheet" href="/stylesheets/style.css"> -->
+</head>
+<body>
+  <h1>Edit Sneaker</h1>
+  <form action="/sneakers/<%= sneaker._id %>?_method=PUT" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="<%= sneaker.name %>" required>
+
+    <label for="brand">Brand:</label>
+    <input type="text" name="brand" id="brand" value="<%= sneaker.brand %>" required>
+
+    <label for="size">Size:</label>
+    <input type="number" name="size" id="size" value="<%= sneaker.size %>" required>
+
+    <label for="isAvailable">Available:</label>
+    <input type="checkbox" name="isAvailable" id="isAvailable" <%= sneaker.isAvailable ? 'checked' : '' %> >
+
+    <button type="submit">Update Sneaker</button>
+  </form>
+  <a href="/sneakers">Back to Sneakers</a>
+</body>
+</html>

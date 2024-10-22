@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sneakers List</title>
+  <!-- <link rel="stylesheet" href="/stylesheets/style.css"> -->
+</head>
+<body>
+  <h1>All Sneakers</h1>
+  <a href="/sneakers/new">Add New Sneaker</a>
+  <ul>
+    <% sneakers.forEach(sneaker => { %>
+      <li>
+        <a href="/sneakers/<%= sneaker._id %>"><%= sneaker.name %></a> - 
+        <%= sneaker.brand %> - 
+        Size: <%= sneaker.size %> - 
+        <%= sneaker.isAvailable ? 'Available' : 'Not Available' %>
+        <a href="/sneakers/<%= sneaker._id %>/edit">Edit</a>
+        <form action="/sneakers/<%= sneaker._id %>?_method=DELETE" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
